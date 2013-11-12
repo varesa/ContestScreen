@@ -5,21 +5,22 @@
     <head>
 	<title>InfoScreen</title>
           <script type="text/javascript">
-		var rmax = 50;
         	var tmr = 10;
         	var intg = 1;
         	var dir = 1;
         	var pos = screen.width;
 
         	function marquee() {
-            	  obj = document.getElementById("scroll").style;
-            	  leftpos  = parseInt(obj.left);
-            	  rightpos  = leftpos + obj.width;
-            	  if (rightpos < rmax) {
-                    leftpos  = 200;
+            	  obj = document.getElementById("scroll")
+            	  objStyle = obj.style;
+            	  leftpos  = parseInt(objStyle.left);
+            	  rightpos  = leftpos + obj.offsetWidth;
+            	  console.debug(rightpos);
+            	  if (rightpos < -10) {
+                    leftpos  = screen.width;
             	  }
             	  pos = leftpos - dir;
-            	  obj.left = pos + "px";
+            	  objStyle.left = pos + "px";
             	  setTimeout("marquee()", intg * tmr);
         	}
 
