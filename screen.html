@@ -1,25 +1,25 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <head>
-	<title>InfoScreen</title>
+	<title>Inforuutu</title>
           <script type="text/javascript">
-		var rmax = 50;
         	var tmr = 10;
         	var intg = 1;
         	var dir = 1;
         	var pos = screen.width;
 
         	function marquee() {
-            	  obj = document.getElementById("scroll").style;
-            	  leftpos  = parseInt(obj.left);
-            	  rightpos  = leftpos + obj.width;
-            	  if (rightpos < rmax) {
-                    leftpos  = 200;
+            	  obj = document.getElementById("scroll")
+            	  objStyle = obj.style;
+            	  leftpos  = parseInt(objStyle.left);
+            	  rightpos  = leftpos + obj.offsetWidth;
+
+            	  if (rightpos < -10) {
+                    leftpos  = screen.width;
             	  }
             	  pos = leftpos - dir;
-            	  obj.left = pos + "px";
+            	  objStyle.left = pos + "px";
             	  setTimeout("marquee()", intg * tmr);
         	}
 
@@ -28,11 +28,13 @@
             	  obj.left = pos + "px";
             	  setTimeout("marquee()", intg * tmr);
         	}
-          </script>
-	<style type="text/css">
+            </script>	
+	    <style type="text/css">
 	    body {
 		margin: 0px;
  		font-family: Arial, Helvetica;
+                background-image: url('bg_body.jpg');
+		background-repeat: no-repeat;
 		overflow-x: hidden;
 	    }
 	
@@ -49,14 +51,12 @@
 	    #main {
 		overflow:hidden;
 		zoom: 1;
-		
 	    }
 	    
 	    .panel {
 		position: absolute;
 		height: 100%;
 		float: left;
-		background-color: #0000FF;
 	    }
 	    
 	    .box {
@@ -65,7 +65,8 @@
 		padding: 20px;
 		padding-top: 10px;
 		border-radius: 10px;
-		background-color: #DDDDDD;
+                background-image: url('http://www.salpaus.fi/Style%20Library/layouts/images/bg-page.gif');
+		background-color: white;
 		box-shadow: 10px 10px 5px #113;
 	    }
 	    
@@ -90,13 +91,15 @@
 		position: absolute;
 		bottom: 0px;
 		height: 32px;
-		background: #EEEEEE;
+		background: #0047A9;
 		width: 100%;
 	    }
 
 	    #scroll pre {
-		font: 24px Tahoma, Helvetica, Arial, Sans-Serif;
+		font-size: 24px;
+		font-family: 'Trebuchet MS';
 		font-weight:900;
+		color:white;
 		margin: 0;
 		padding: 0;
 	    }
@@ -109,7 +112,7 @@
 	    <div id="main">
 		<div id="contestant_cont" class="panel">
 		    <div id="contestant_box" class="box">
-			<h2>Kilpailija<br>Abc Def</h2>
+			<h2>Kilpailija<br>Jussi Huttunen</h2>
 			<div id="profile" style="width: 100%; height: 300px;" align="center"></div>
 			<br>
 			GNU GENERAL PUBLIC LICENSE
@@ -128,7 +131,7 @@
 		
 		<div id="task_cont" class="panel">
 		    <div id="task_box" class="box">
-			<h2>Tehtä</h2>
+			<h2>Tehtävä</h2>
 			<p>GNU GENERAL PUBLIC LICENSE
 			
 			Version 3, 29 June 2007
@@ -169,10 +172,9 @@
 	    </div>
 	    <div id="footer">
 		<div id="scroll" style="1px solid black; position: absolute; top: 0px; left: 0px">
-			<pre>Jäestelmätoimittanut Finbit NY				Yhteistyö Elfa ja Fluke</pre>
+			<pre>Järjestelmän toimittanut Finbit NY				Yhteistyössä Elfa ja Fluke</pre>
 		</div>
 	    </div>
 	</div>
     </body>
 </html>
-
