@@ -1,9 +1,8 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <head>
-	<title>InfoScreen</title>
+	<title>Inforuutu</title>
           <script type="text/javascript">
         	var tmr = 10;
         	var intg = 1;
@@ -29,11 +28,13 @@
             	  obj.left = pos + "px";
             	  setTimeout("marquee()", intg * tmr);
         	}
-          </script>
-	<style type="text/css">
+            </script>	
+	    <style type="text/css">
 	    body {
 		margin: 0px;
  		font-family: Arial, Helvetica;
+                background-image: url('bg_body.jpg');
+		background-repeat: no-repeat;
 		overflow-x: hidden;
 	    }
 	
@@ -50,14 +51,12 @@
 	    #main {
 		overflow:hidden;
 		zoom: 1;
-		
 	    }
 	    
 	    .panel {
 		position: absolute;
 		height: 100%;
 		float: left;
-		background-color: #0000FF;
 	    }
 	    
 	    .box {
@@ -66,7 +65,8 @@
 		padding: 20px;
 		padding-top: 10px;
 		border-radius: 10px;
-		background-color: #DDDDDD;
+                background-image: url('http://www.salpaus.fi/Style%20Library/layouts/images/bg-page.gif');
+		background-color: white;
 		box-shadow: 10px 10px 5px #113;
 	    }
 	    
@@ -93,13 +93,15 @@
 		position: absolute;
 		bottom: 0px;
 		height: 32px;
-		background: #EEEEEE;
+		background: #0047A9;
 		width: 100%;
 	    }
 
 	    #scroll pre {
-		font: 24px Tahoma, Helvetica, Arial, Sans-Serif;
+		font-size: 24px;
+		font-family: 'Trebuchet MS';
 		font-weight:900;
+		color:white;
 		margin: 0;
 		padding: 0;
 	    }
@@ -168,4 +170,3 @@
 	</div>
     </body>
 </html>
-
