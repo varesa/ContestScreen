@@ -27,18 +27,28 @@
         }
 
         #buttons_box {
+            margin: auto auto;
             margin-top: 100px;
+            height: 200px;
+            background-color: #BBBBBB;
+        }
+
+        #buttons_box p {
+            text-align: center;
+        }
+
+        #buttons_table {
+            text-align: center;
+            //display: block;
+            width: 100%;
             height: 100px;
-            //background-color: #BBBBBB;
         }
 
         .button {
             background-color: #AAAAAA;
             padding: 20px;
-            margin: 20px;
+            margin: 0 auto ;
             border-radius: 10px;
-            display: float;
-            float: left;
         }
     </style>
 </head>
@@ -48,9 +58,14 @@
     </div>
 
     <div id="buttons_box" class="box">
-        <div id="button1" class="button">ABC</div>
-        <div id="button2" class="button">DEF</div>
-        <div id="button2" class="button">GHI</div>
+        <p>Vaihda tehtävää:</p>
+        <table id="buttons_table">
+            <tr>
+                <td><button id="button1" class="button">ABC</button></td>
+                <td><button id="button2" class="button">DEF</button></td>
+                <td><button id="button2" class="button">GHIJ</button></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
