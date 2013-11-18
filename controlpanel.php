@@ -1,3 +1,19 @@
+<?php
+    if(array_key_exists('id', $_GET)) {
+	file_put_contents("./currenttask.txt", $_GET['id']);
+    }
+    
+    $files = Array();
+    
+    $dir = opendir("tasks/");
+    
+    while (false !== ($file = readdir($dir))) {
+	if(substr($file, 0, 1) != ".") {
+	    array_push($files, $file);
+	}
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,16 +70,24 @@
 </head>
 <body>
     <div id="status_box" class="box">
-        <p>Nykyinen tehtävä: <span id="task_name">Tehtävä 2</span></p>
+        <p>Nykyinen tehtävä: <span id="task_name"><?php
+    	$name = file_get_contents("currenttask.txt");
+    	$title = implode(array_slice(file("tasks/" . $name), 0, 1), "");
+    	print($title);
+        ?></span></p>
     </div>
 
     <div id="buttons_box" class="box">
         <p>Vaihda tehtävää:</p>
         <table id="buttons_table">
             <tr>
-                <td><button id="button1" class="button">ABC</button></td>
-                <td><button id="button2" class="button">DEF</button></td>
-                <td><button id="button2" class="button">GHIJ</button></td>
+        	<?php
+                foreach ($files as $file) {
+            	    //$id = implode(array_slice(explode($file, "."), 0, -1), ".");
+            	    $name = implode(array_splice(file("tasks/" . $file), 0, 1));
+            	    print("<td><button id=\"button1\" class=\"button\" onClick=\"parent.location='controlpanel.php?id=$file' \">$name</button></td>");
+            	}
+                ?>
             </tr>
         </table>
     </div>
