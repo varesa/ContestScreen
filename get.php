@@ -20,7 +20,7 @@ $task = file($task_url . $taskid);
 $task_name = implode(array_slice($task, 0, 1),"<br>");
 $task_text = implode(array_slice($task, 1), "<br>");
 
-$replacements = array("<cont_name>"=>$name, "<cont_text>"=>$text, "<cont_img>"=>"img_url", "<task_name>"=>$task_name, "<task_text>"=>$task_text);
+$replacements = array("<cont_name>"=>$name, "<cont_text>"=>$text, "<cont_img>"=>$img_url, "<task_name>"=>$task_name, "<task_text>"=>$task_text);
 $template = str_replace(array_keys($replacements), $replacements, $template);
 print($template);
 
