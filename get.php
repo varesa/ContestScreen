@@ -16,7 +16,7 @@ $text = implode(array_slice($info, 1));
 
 //print("Test: " . $name);
 
-$replacements = array("<cont_name>"=>$name, "<cont_text>"=>$text, "<cont_img>"=>"img_url", "<task>"=>"task text");
+$replacements = array("<cont_name>"=>$name, "<cont_text>"=>$text, "<cont_img>"=>$img_url, "<task>"=>"task text");
 $template = str_replace(array_keys($replacements), $replacements, $template);
 print($template);
 
