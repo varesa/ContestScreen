@@ -28,10 +28,8 @@
 					ajax.send();
 				}, 1000);
 			
-        	var tmr = 10;
-        	var intg = 1;
-        	var dir = 1;
-        	var pos = screen.width;
+        	var interval = 10;
+        	var speed = 1;
 			
         	function marquee() {
             	  obj = document.getElementById("scroll")
@@ -42,15 +40,14 @@
             	  if (rightpos < -10) {
                     leftpos  = screen.width;
             	  }
-            	  pos = leftpos - dir;
+            	  pos = leftpos - speed;
             	  objStyle.left = pos + "px";
-            	  setTimeout("marquee()", intg * tmr);
         	}
 
         	function init() {
             	  obj = document.getElementById("scroll").style;
-            	  obj.left = pos + "px";
-            	  setTimeout("marquee()", intg * tmr);
+            	  obj.left = screen.width + "px";
+            	  setInterval("marquee()", interval);
         	}
 			
             </script>	
