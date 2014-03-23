@@ -45,9 +45,14 @@
         	}
 
         	function init() {
-            	  obj = document.getElementById("scroll").style;
-            	  obj.left = screen.width + "px";
-            	  setInterval("marquee()", interval);
+            	  obj = document.getElementById("scroll");
+            	  objStyle = obj.style;
+            	  
+            	  // Marquee disabled
+            	  //objStyle.left = screen.width + "px";
+            	  //setInterval("marquee()", interval);
+            	  
+            	  objStyle.left = (screen.width/2 - obj.offsetWidth/2) + "px";
         	}
 			
             </script>	
@@ -208,7 +213,7 @@
 		</div>
 	    <div id="footer">
 		<div id="scroll" style="1px solid black; position: absolute; top: 0px; left: 0px">
-			<pre>Järjestelmän toimittanut Vili Nurminen ja Esa Varemo, Finbit NY / Salpauksen lukio Nastola						</pre>
+			<pre>Järjestelmän toimittanut Vili Nurminen ja Esa Varemo, Finbit NY / Salpauksen lukio Naststola<pre>
 		</div>
 	    </div>
 	</div>
