@@ -4,32 +4,29 @@
     <head>
 	<title>Inforuutu</title>
           <script type="text/javascript">
-						
-			var interval=setInterval(function(){check()},10000);
-						
-			function check()
-			{
-				var file;
-				var refresh;
-				if(window.XMLHttpRequest)
-				{
-					file = new XMLHttpRequest();
-				}
-				file.onreadystatechange = function()
-				{
-					if(file.readyState == 4 && file.status == 200)
-					{
-						refresh = file.responseText;
+			
+			
+			var oldDate = "";
+			
+			setInterval(
+				function() {
+					if(window.XMLHttpRequest) {
+						ajax = new XMLHttpRequest();
 					}
-				}
-				file.open("GET", "./refresh.txt", true);
-				file.send();
-				
-				if(refresh == "1")
-				{
-					parent.location="controlpanel.php";
-				}
-			}
+					ajax.onreadystatechange = function() {
+						if(ajax.readyState == 4 && ajax.status == 200) {
+							newDate = ajax.responseText;
+							
+							if (oldDate == "") {
+							    oldDate = newDate;
+							} else if (newDate != oldDate) {
+							    location.reload();
+							}
+						}
+					}
+					ajax.open("GET", "./timecode.txt", true);
+					ajax.send();
+				}, 1000);
 			
         	var tmr = 10;
         	var intg = 1;
