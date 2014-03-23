@@ -1,4 +1,8 @@
 <?php
+if(!array_key_exists('id', $_GET)) {
+    print("<html><body>Please provide a id</body></html>");
+    exit();
+}
 
 $id = $_GET['id'];
 
