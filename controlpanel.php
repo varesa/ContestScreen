@@ -1,7 +1,13 @@
 <?php
+
+    date_default_timezone_set('Europe/Helsinki');
+
     if(array_key_exists('id', $_GET)) {
 	file_put_contents("./currenttask.txt", $_GET['id']);
-	date_default_timezone_set('Europe/Helsinki');
+	file_put_contents("./timecode.txt", date(DateTime::ISO8601));
+    }
+    
+    if(array_key_exists('refresh', $_GET)) {
 	file_put_contents("./timecode.txt", date(DateTime::ISO8601));
     }
     
@@ -33,6 +39,10 @@
             padding: 10px;
             border-radius: 30px;
         }
+        
+        .box p {
+	    text-align: center;
+        }
 
         #status_box {
             margin-top: 100px;
@@ -40,19 +50,11 @@
             background-color: #BBBBBB;
         }
 
-        #status_box p{
-            text-align: center;
-        }
-
         #buttons_box {
             margin: auto auto;
             margin-top: 100px;
             height: 200px;
             background-color: #BBBBBB;
-        }
-
-        #buttons_box p {
-            text-align: center;
         }
 
         #buttons_table {
@@ -87,11 +89,15 @@
                 foreach ($files as $file) {
             	    //$id = implode(array_slice(explode($file, "."), 0, -1), ".");
             	    $name = implode(array_splice(file("tasks/" . $file), 0, 1));
-            	    print("<td><button id=\"button1\" class=\"button\" onClick=\"parent.location='controlpanel.php?id=$file' \">$name</button></td>");
+            	    print("<td><button class=\"button\" onClick=\"parent.location='controlpanel.php?id=$file' \">$name</button></td>");
             	}
                 ?>
             </tr>
         </table>
+    </div>
+    
+    <div id="status_box" class="box">
+	<a href="controlpanel.php?refresh"><p>Refresh</p></a>
     </div>
 </body>
 </html>
