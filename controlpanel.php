@@ -1,6 +1,8 @@
 <?php
     if(array_key_exists('id', $_GET)) {
 	file_put_contents("./currenttask.txt", $_GET['id']);
+	date_default_timezone_set('Europe/Helsinki');
+	file_put_contents("./timecode.txt", date(DateTime::ISO8601));
     }
     
     $files = Array();
